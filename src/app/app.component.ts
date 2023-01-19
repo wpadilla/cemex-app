@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {IOrders} from "../core/interfaces/order.interface";
 import {verticalSlideAnimation} from "../shared/animations/common.animations";
+import {ITableHeaderItem} from "../core/interfaces/table.interface";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,15 @@ import {verticalSlideAnimation} from "../shared/animations/common.animations";
 })
 export class AppComponent {
   title = 'cemex-app';
-  contractsColumns = ['Status', 'Suplier Name', 'Month', 'Phase', 'Internal Order', 'Amount (USD)'];
+  orderTableColumns: ITableHeaderItem[] = [
+    {title: 'Status'},
+    {title: 'Suplier Name'},
+    {title: 'Month'},
+    {title: 'Phase'},
+    {title: 'Internal Order'},
+    {title: 'Amount (USD)', position: 'right'},
+  ];
+
   orders: IOrders[] = [
     {
       amount: 5000,
@@ -37,5 +46,7 @@ export class AppComponent {
       status: 'Pending Approval',
     }
   ]
+
+  breadcrumbs = ['Financial Management', 'CAPEX Management'];
 
 }

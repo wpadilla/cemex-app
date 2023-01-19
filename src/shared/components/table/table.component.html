@@ -1,6 +1,8 @@
 <div class="table-wrapper">
   <div class="table-header">
-    <span *ngFor="let column of columns">{{column}}</span>
+    <span *ngFor="let column of columns" class="table-header-item {{column.position}}">
+      {{column.title}}
+    </span>
   </div>
   <div class="table-body">
     <div *ngFor="let item of data; index as i" class="table-item">

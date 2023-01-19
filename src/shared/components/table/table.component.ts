@@ -1,4 +1,5 @@
 import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/core';
+import {ITableHeaderItem} from "../../../core/interfaces/table.interface";
 
 @Component({
   selector: 'app-table',
@@ -6,8 +7,8 @@ import { Component, ContentChild, Input, OnInit, TemplateRef } from '@angular/co
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit {
-  @Input() columns: string[] = [];
-  @Input() data: any[] = [];
+  @Input() columns: ITableHeaderItem[] = [];
+  @Input() data: unknown[] = [];
   @ContentChild('listItem') listItem?: TemplateRef<any>;
 
   constructor() { }

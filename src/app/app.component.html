@@ -1,8 +1,13 @@
 <app-layout>
-  <app-table [data]="orders" [columns]="contractsColumns"
-             [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0, yPosition: '40px', delay: '.6s'}}">
-    <ng-template #listItem let-item>
-      <app-order-item [order]="item"></app-order-item>
-    </ng-template>
-  </app-table>
+  <app-breadcrumbs [data]="breadcrumbs"></app-breadcrumbs>
+  <p class="app-title">CEMEX Go Online Store</p>
+  <p class="app-total app-subtitle">Total: {{28410 | currency}}USD</p>
+  <div>
+    <app-table [data]="orders" [columns]="orderTableColumns"
+               [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0, yPosition: '40px', delay: '.6s'}}">
+      <ng-template #listItem let-item>
+        <app-order-item [order]="item"></app-order-item>
+      </ng-template>
+    </app-table>
+  </div>
 </app-layout>
