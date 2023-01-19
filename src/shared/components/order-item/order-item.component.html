@@ -1,0 +1,23 @@
+<div class="contractor-item">
+  <div class="contractor-item-profile contractor-item-value"
+       data-label="Status">
+    <span>{{order.status}}</span>
+  </div>
+  <span class="contractor-item-value"
+        data-label="Type">{{order.month}}</span>
+  <span class="contractor-item-value"
+        data-label="Supplier Name">
+    {{order.supplierName}}
+  </span>
+  <span class="contractor-item-value"
+        data-label="Month">
+    {{order.month }}
+  </span>
+  <span class="contractor-item-value"
+        data-label="Internal Order">
+    {{order.internalOrder }}
+  </span>
+  <span class="contractor-item-value" data-label="Amount (USD)">
+    {{order.amount | currency}}
+  </span>
+</div>

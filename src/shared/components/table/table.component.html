@@ -1,0 +1,14 @@
+<div class="table-wrapper">
+  <div class="table-header">
+    <span *ngFor="let column of columns">{{column}}</span>
+  </div>
+  <div class="table-body">
+    <div *ngFor="let item of data; index as i" class="table-item">
+      <ng-container *ngIf="listItem;">
+        <ng-container
+          *ngTemplateOutlet="listItem; context: { $implicit: item, index: i }"
+        ></ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+:host {
+  position: relative;
+  cursor: pointer;
+  z-index: 9;
+  display: block;
+}
+
+object {
+  position: relative;
+  z-index: -1;
+  height: 0;
+  width: 0;
+}
