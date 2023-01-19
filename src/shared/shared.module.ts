@@ -6,7 +6,11 @@ import {TableComponent} from './components/table/table.component';
 import {OrderItemComponent} from './components/order-item/order-item.component';
 import {BadgeComponent} from './components/badge/badge.component';
 import {ClickOutsideDirective} from "./directives/click-outside.directive";
-import {AppFormModule} from "./components/form/app-form.module";
+import {InputComponent} from "./components/form/input/input.component";
+import {SelectComponent} from "./components/form/select/select.component";
+import {CheckboxComponent} from "./components/form/checkbox/checkbox.component";
+import { TableRecordComponent } from './components/table/components/table-record/table-record.component';
+import { TableCellComponent } from './components/table/components/table-cell/table-cell.component';
 
 @NgModule({
   declarations: [
@@ -16,10 +20,14 @@ import {AppFormModule} from "./components/form/app-form.module";
     TableComponent,
     OrderItemComponent,
     BadgeComponent,
+    InputComponent,
+    SelectComponent,
+    CheckboxComponent,
+    TableRecordComponent,
+    TableCellComponent,
   ],
   imports: [
     CommonModule,
-    AppFormModule,
   ],
   providers: [],
   exports: [
@@ -28,6 +36,9 @@ import {AppFormModule} from "./components/form/app-form.module";
     ButtonComponent,
     TableComponent,
     OrderItemComponent,
+    InputComponent,
+    SelectComponent,
+    CheckboxComponent,
   ]
 })
 export class SharedModule {

@@ -9,6 +9,7 @@ import {IOrders} from "../../../core/interfaces/order.interface";
 export class OrderItemComponent implements OnInit {
 
   @Input() order: IOrders = {} as IOrders;
+  value = 'Status!!'
   constructor() { }
 
   ngOnInit(): void {

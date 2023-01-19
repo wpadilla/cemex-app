@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import {IOrders} from "../core/interfaces/order.interface";
+import {verticalSlideAnimation} from "../shared/animations/common.animations";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [verticalSlideAnimation]
 })
 export class AppComponent {
   title = 'cemex-app';
