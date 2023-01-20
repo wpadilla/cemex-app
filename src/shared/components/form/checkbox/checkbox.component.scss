@@ -1,0 +1,28 @@
+@use "src/shared/styles/colors" as colors;
+
+.checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+
+  input[type='checkbox'] {
+    margin-right: 0.12rem;
+    visibility: hidden;
+  }
+
+  .checkbox-moth::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 1px solid colors.$gray;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  input[type='checkbox']:checked ~ .checkbox-moth::before {
+    background-color: colors.$blue-3;
+    content: '✔'
+  }
+}

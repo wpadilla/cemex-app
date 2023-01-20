@@ -1,0 +1,8 @@
+<label class="checkbox-wrapper">
+  <input type="checkbox"
+         [checked]="checked"
+         (change)="onChange($event)"
+         (blur)="onTouched($event)">
+  <span class="checkbox-moth"></span>
+  {{label}}
+</label>

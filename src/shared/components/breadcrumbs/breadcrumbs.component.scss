@@ -1,0 +1,23 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-weight: 400;
+
+    &::after {
+      content: "•";
+      display: inline;
+      margin: 0 0.75rem;
+    }
+    &:last-of-type {
+      &::after {
+        content: "";
+        display: inline;
+      }
+    }
+  }
+}

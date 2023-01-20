@@ -1,6 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {fadeAnimation} from "../../animations/common.animations";
-import {IAvailableIcons, IColors} from "../../../core/interfaces/common.interface";
+import {IAvailableIcons, IColorTypes} from "../../../core/interfaces/common.interface";
 
 @Component({
   selector: 'app-icon',
@@ -13,7 +13,7 @@ import {IAvailableIcons, IColors} from "../../../core/interfaces/common.interfac
 export class IconComponent {
   @Input() type: IAvailableIcons = 'x-lg';
   @Input() iconClass?: string;
-  @Input() color: IColors = 'blue-3';
+  @Input() color: IColorTypes = 'blue-3';
   @Input() label?: string;
 
   constructor() {

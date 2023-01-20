@@ -13,6 +13,8 @@ import { TableRecordComponent } from './components/table/components/table-record
 import { TableCellComponent } from './components/table/components/table-cell/table-cell.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { FiltersComponent } from './components/filters/filters.component';
+import { TagComponent } from './components/tag/tag.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { FiltersComponent } from './components/filters/filters.component';
     TableCellComponent,
     BreadcrumbsComponent,
     FiltersComponent,
+    TagComponent,
+    ModalComponent,
   ],
   imports: [
     CommonModule,

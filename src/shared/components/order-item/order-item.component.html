@@ -1,6 +1,7 @@
 <app-table-record>
   <app-table-cell label="Status">
-    {{order.status}}
+    <app-badge [type]="badgeType"></app-badge>
+    <span>{{order.status}}</span>
   </app-table-cell>
   <app-table-cell label="Supplier Name">
     {{order.supplierName}}

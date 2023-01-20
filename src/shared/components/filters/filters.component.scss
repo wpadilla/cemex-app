@@ -1,0 +1,24 @@
+@use "src/shared/styles/colors" as colors;
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+  gap: 1.875rem;
+  background-color: colors.$gray;
+  padding: 0.625rem 1.25rem;
+  border-radius: 3px;
+  align-items: center;
+
+  .filter-right {
+    justify-self: right;
+  }
+
+  .filters-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+}

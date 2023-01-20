@@ -1,0 +1,41 @@
+.modal-wrapper {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+
+  .modal-backdrop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+  }
+
+  .modal {
+    position: absolute;
+    top: 3.75rem;
+    width: 85vw;
+    background-color: white;
+    padding: 1.875rem 2.5rem;
+
+    .modal-header {
+      display: flex;
+      justify-content: end;
+      font-size: 2rem;
+    }
+
+    .modal-body {
+      padding-bottom: 3.125rem;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: end;
+      gap: 1.25rem;
+    }
+  }
+}

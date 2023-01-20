@@ -1,8 +1,8 @@
 <app-layout>
   <app-breadcrumbs [data]="breadcrumbs"></app-breadcrumbs>
   <p class="app-title">CEMEX Go Online Store</p>
-  <p class="app-total app-subtitle">Total: {{28410 | currency}}USD</p>
   <app-filters></app-filters>
+  <p class="app-total app-subtitle">Total: {{28410 | currency}}USD</p>
   <div>
     <app-table [data]="orders" [columns]="orderTableColumns"
                [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0, yPosition: '40px', delay: '.6s'}}">

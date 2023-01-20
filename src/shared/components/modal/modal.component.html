@@ -1,0 +1,17 @@
+<div class="modal-wrapper" *ngIf="show" [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0 }}">
+  <div class="modal-backdrop" (click)="onCancel()">
+  </div>
+  <div class="modal" >
+    <div class="modal-header">
+      <app-icon type="x-lg" (click)="onCancel()"></app-icon>
+    </div>
+    <div class="modal-body">
+      <p class="app-title">{{title}}</p>
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer">
+      <app-button text="Cancel" type="secondary" (click)="onCancel()"></app-button>
+      <app-button text="Apply" (click)="accept.emit()"></app-button>
+    </div>
+  </div>
+</div>

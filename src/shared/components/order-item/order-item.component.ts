@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {IOrders} from "../../../core/interfaces/order.interface";
+import {BadgeTypes} from "../../../core/interfaces/common.interface";
 
 @Component({
   selector: 'app-order-item',
@@ -9,10 +10,12 @@ import {IOrders} from "../../../core/interfaces/order.interface";
 export class OrderItemComponent implements OnInit {
 
   @Input() order: IOrders = {} as IOrders;
-  value = 'Status!!'
+  badgeType?: BadgeTypes;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.badgeType = this.order.status.split(' ')[0].toLowerCase() as BadgeTypes;
   }
 
 }

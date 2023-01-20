@@ -1,41 +1,19 @@
-@import "src/shared/styles/colors";
-:host {
-  justify-self: stretch;
-  display: flex;
-  justify-content: end;
-}
+@use "src/shared/styles/colors" as colors;
 
 .badge {
-  padding: 5px 10px;
-  max-width: 162px;
-  width: 100%;
-  border-radius: 20px;
-  font-size: 0.625rem;
-  display: flex;
-  align-items: center;
+  width: 30px;
+  height: 20px;
+  border-radius: 3px;
 
-  &::before {
-    content: "";
-    width: 0.3125rem;
-    height: 0.3125rem;
-    border-radius: 0.625rem;
-    margin-right: 0.4375rem;
-  }
-
-
-  &.success {
-    color: $green;
-    background-color: $gray;
-    &::before {
-      background-color: $green;
-    }
+  &.active {
+    background-color: colors.$green;
   }
 
   &.pending {
-    color: $orange;
-    background-color: $orange;
-    &::before {
-      background-color: $orange;
-    }
+    background-color: colors.$blue-3;
+  }
+
+  &.waiting {
+    background-color: colors.$orange;
   }
 }

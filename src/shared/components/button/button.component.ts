@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { IAvailableIcons } from "../../../core/interfaces/icons";
+import {ButtonTypes} from "../../../core/interfaces/common.interface";
 
 @Component({
   selector: 'app-button',
@@ -8,8 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input() text = '';
-  @Input() icon?: any;
-  @Input() type: 'primary' | 'secondary' = 'primary';
+  @Input() type: ButtonTypes = 'primary';
 
   constructor() { }
 

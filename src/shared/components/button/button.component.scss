@@ -1,38 +1,28 @@
-@import "src/shared/styles/colors";
+@use "src/shared/styles/colors" as colors;
+
 :host {
   display: flex;
 }
+
 .button {
-  padding: 15px 42px;
+  padding: 0.625rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.3125rem;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-  border: none;
-  font-weight: 700;
-  font-size: 1.125rem;
+  border-radius: 3px;
+  border: 1px solid colors.$blue-3;
+  font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  white-space: nowrap;
 
   &.primary {
-    background-color: $red;
+    background-color: colors.$blue-3;
     color: #fff;
   }
 
   &.secondary {
-    padding: 15px 20px;
-    font-weight: 500;
-    background-color: $gray-2;
-    color: $black;
-    box-shadow: none;
-  }
-
-
-  ::ng-deep {
-    object {
-      margin-right: 10px;
-    }
+    background-color: white;
+    color: colors.$blue-3;
   }
 
 }

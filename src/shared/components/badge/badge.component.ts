@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {BadgeTypes} from "../../../core/interfaces/common.interface";
 
 @Component({
   selector: 'app-badge',
@@ -6,8 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./badge.component.scss']
 })
 export class BadgeComponent implements OnInit {
-  @Input() mode: 'success' | 'pending' = 'success';
-  @Input() text =  '';
+  @Input() type?: BadgeTypes = 'active';
 
   constructor() { }
 
