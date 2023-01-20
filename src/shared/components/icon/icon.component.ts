@@ -1,6 +1,6 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-// import { IAvailableIcons } from "../../../core/interfaces/icons";
-import { fadeAnimation } from "../../animations/common.animations";
+import {Component, Input} from '@angular/core';
+import {fadeAnimation} from "../../animations/common.animations";
+import {IAvailableIcons, IColors} from "../../../core/interfaces/common.interface";
 
 @Component({
   selector: 'app-icon',
@@ -10,21 +10,13 @@ import { fadeAnimation } from "../../animations/common.animations";
     fadeAnimation,
   ]
 })
-export class IconComponent implements OnInit, AfterViewInit {
-  @Input() icon: any = 'person';
+export class IconComponent {
+  @Input() type: IAvailableIcons = 'x-lg';
   @Input() iconClass?: string;
-  rendered?: boolean;
-  @ViewChild('customIcon') customIcon?: ElementRef<HTMLObjectElement>;
+  @Input() color: IColors = 'blue-3';
+  @Input() label?: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor() {
   }
 
-  ngAfterViewInit() {
-    if(this.customIcon?.nativeElement) this.customIcon.nativeElement.data = `assets/icons/${this.icon}.svg`
-    setTimeout(() => {
-      this.rendered = true;
-    }, 300)
-  }
 }

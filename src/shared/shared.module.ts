@@ -12,6 +12,7 @@ import {CheckboxComponent} from "./components/form/checkbox/checkbox.component";
 import { TableRecordComponent } from './components/table/components/table-record/table-record.component';
 import { TableCellComponent } from './components/table/components/table-cell/table-cell.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { FiltersComponent } from './components/filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     TableRecordComponent,
     TableCellComponent,
     BreadcrumbsComponent,
+    FiltersComponent,
   ],
   imports: [
     CommonModule,
@@ -42,6 +44,7 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
     SelectComponent,
     CheckboxComponent,
     BreadcrumbsComponent,
+    FiltersComponent,
   ]
 })
 export class SharedModule {

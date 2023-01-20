@@ -1,4 +1,8 @@
-<div class="search-box-wrapper">
-  <app-icon icon="search"></app-icon>
-  <input class="search-box-input" placeholder="Search">
+<div class="input-wrapper">
+  <input [value]="value"
+         [disabled]="disabled"
+         (change)="onChange($event)"
+         (blur)="onTouched($event)" class="input"
+         [placeholder]="placeholder">
+  <app-icon [type]="icon" *ngIf="icon"></app-icon>
 </div>

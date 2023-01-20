@@ -5,9 +5,8 @@
   display: block;
 }
 
-object {
-  position: relative;
-  z-index: -1;
-  height: 0;
-  width: 0;
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
