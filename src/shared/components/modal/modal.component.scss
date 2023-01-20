@@ -1,5 +1,8 @@
+:host {
+  overflow: hidden;
+}
 .modal-wrapper {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
@@ -7,6 +10,7 @@
   left: 0;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 
   .modal-backdrop {
     position: absolute;
@@ -37,5 +41,15 @@
       justify-content: end;
       gap: 1.25rem;
     }
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 100% !important;
+    height: 100%;
+    top: 0 !important;
+    overflow: hidden;
   }
 }

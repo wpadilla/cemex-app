@@ -1,20 +1,32 @@
-<div class="filters">
-  <div class="filters-item">
-    <app-input icon="search" placeholder="Search for Name"></app-input>
-    <app-icon type="sliders" label="Filters" (click)="showFilters = true"></app-icon>
-  </div>
-  <div class="filters-item">
-    <app-tag label="Status: active"></app-tag>
-    <app-tag label="Status: active"></app-tag>
-  </div>
-  <span class="cursor-pointer text-blue-3 filter-right">Clear Filters</span>
-  <app-modal title="Filter Express" [show]="showFilters" (cancel)="showFilters = false">
-    <label>Status</label>
+<div class="filters-wrapper">
+  <div class="filters">
     <div class="filters-item">
-      <app-checkbox label="Active"></app-checkbox>
-      <app-checkbox label="Pending Approval"></app-checkbox>
-      <app-checkbox label="Waiting Compensation"></app-checkbox>
+      <app-input icon="search" placeholder="Search for Name"></app-input>
+      <app-icon type="sliders" label="Filters" (click)="showFilters = true"></app-icon>
+    </div>
+    <div class="filters-item">
+      <app-tag label="Status: active"></app-tag>
+      <app-tag label="Status: active"></app-tag>
+    </div>
+    <span class="cursor-pointer text-blue-3 filter-right">Clear Filters</span>
+
+  </div>
+  <app-modal class="filter-modal" title="Filter Express" [show]="showFilters" (cancel)="showFilters = false">
+    <div class="filters-modal-content">
+      <div class="content-item">
+        <label class="text-blue">Status</label>
+        <div class="filters-item">
+          <app-checkbox label="Active"></app-checkbox>
+          <app-checkbox label="Pending Approval"></app-checkbox>
+          <app-checkbox label="Waiting Compensation"></app-checkbox>
+        </div>
+      </div>
+      <div class="filters-item-grid">
+        <app-select label="Phase" [data]="phases"></app-select>
+        <app-select label="Month" [data]="months"></app-select>
+      </div>
     </div>
   </app-modal>
 </div>
+
 

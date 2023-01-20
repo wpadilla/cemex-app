@@ -1,17 +1,25 @@
 @use "src/shared/styles/colors" as colors;
 
-.filters {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
-  gap: 1.875rem;
-  background-color: colors.$gray;
-  padding: 0.625rem 1.25rem;
-  border-radius: 3px;
-  align-items: center;
+.filters-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 
-  .filter-right {
-    justify-self: right;
+  .filters {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    gap: 1.875rem;
+    background-color: colors.$gray;
+    padding: 0.625rem 1.25rem;
+    border-radius: 3px;
+    align-items: center;
+    .filter-right {
+      justify-self: right;
+    }
   }
+
+
 
   .filters-item {
     width: 100%;
@@ -21,4 +29,16 @@
     gap: 1rem;
   }
 
+  .filters-item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: stretch;
+  }
+
+  .filters-modal-content {
+    margin-top: 2rem;
+    display: grid;
+    gap: 2rem;
+  }
 }

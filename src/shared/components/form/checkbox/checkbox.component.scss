@@ -3,11 +3,12 @@
 .checkbox-wrapper {
   display: flex;
   align-items: center;
-  gap: 0.3125rem;
+  gap: 0.4375rem;
 
   input[type='checkbox'] {
     margin-right: 0.12rem;
     visibility: hidden;
+    position: absolute;
   }
 
   .checkbox-moth::before {

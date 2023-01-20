@@ -1,0 +1,38 @@
+@use "src/shared/styles/colors" as colors;
+
+.select-wrapper {
+  padding: 0.625rem 1.25rem;
+  border-radius: 3px;
+  border: 1px solid colors.$gray-3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  .selected-item {
+    color: colors.$black;
+  }
+
+  .select-menu {
+    position: absolute;
+    width: 100%;
+    border-top: 3px solid colors.$blue-3;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    background-color: white;
+    top: 2.5rem;
+    left: 0;
+    z-index: 99;
+
+    .select-menu-item {
+      padding: 1.25rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: colors.$gray;
+      }
+    }
+
+  }
+}
+
