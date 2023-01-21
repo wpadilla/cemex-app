@@ -23,6 +23,8 @@
     top: 2.5rem;
     left: 0;
     z-index: 99;
+    max-height: 180px;
+    overflow: scroll;
 
     .select-menu-item {
       padding: 1.25rem;

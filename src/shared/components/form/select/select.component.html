@@ -2,7 +2,10 @@
 <div class="select-wrapper" (click)="showMenu=!showMenu">
   <span class="selected-item">{{selectedItem}}</span>
   <app-icon type="chevron-down"></app-icon>
-  <div class="select-menu" *ngIf="showMenu" [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0, yPosition: '-30px', duration: '.2s'}}">
+  <div
+    class="select-menu"
+    *ngIf="showMenu"
+    [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0, yPosition: '-30px', duration: '.2s'}}">
     <div *ngFor="let item of data" class="select-menu-item" (click)="this.handleSelect(item.value)">
       {{item.label}}
     </div>

@@ -4,7 +4,7 @@
       {{column.title}}
     </span>
   </div>
-  <div class="table-body">
+  <div class="table-body" [@fadeListAnimation]="data.length">
     <div *ngFor="let item of data; index as i" class="table-item">
       <ng-container *ngIf="listItem;">
         <ng-container

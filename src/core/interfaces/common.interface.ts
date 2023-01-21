@@ -10,5 +10,5 @@ export type ButtonTypes = 'primary' | 'secondary';
 
 export interface ISelectOption {
   label: string;
-  value: unknown;
+  value: any;
 }

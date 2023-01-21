@@ -1,7 +1,7 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
 import {ISelectOption} from "../../../../core/interfaces/common.interface";
 import {verticalSlideAnimation} from "../../../animations/common.animations";
-import {ControlValueAccessor} from "@angular/forms";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 
 @Component({
@@ -10,6 +10,13 @@ import {ControlValueAccessor} from "@angular/forms";
   styleUrls: ['./select.component.scss'],
   animations: [
     verticalSlideAnimation,
+  ],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SelectComponent),
+      multi: true,
+    },
   ]
 })
 export class SelectComponent implements ControlValueAccessor {

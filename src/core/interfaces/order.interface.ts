@@ -1,5 +1,5 @@
 export type IOrderStatusTypes = 'Active' | 'Pending Approval' | 'Waiting Compensation';
-export type IOrderPhaseTypes = 'Deployment' | 'Research';
+export type IOrderPhaseTypes = 'Deployment' | 'Research' | 'Ideation' | 'Development';
 
 export interface IOrders {
   status: IOrderStatusTypes;

@@ -8,17 +8,22 @@
   .filters {
     display: grid;
     width: 100%;
-    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.875rem;
     background-color: colors.$gray;
     padding: 0.625rem 1.25rem;
     border-radius: 3px;
     align-items: center;
+
     .filter-right {
       justify-self: right;
     }
-  }
 
+    .filter-search-wrapper {
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  }
 
 
   .filters-item {
@@ -31,7 +36,7 @@
 
   .filters-item-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
     gap: 30px;
     justify-items: stretch;
   }

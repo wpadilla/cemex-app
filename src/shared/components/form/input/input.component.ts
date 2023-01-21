@@ -17,18 +17,17 @@ import {IAvailableIcons} from "../../../../core/interfaces/common.interface";
 export class InputComponent implements OnInit, ControlValueAccessor {
   @Input() icon?: IAvailableIcons;
   @Input() placeholder?: string;
-
-  disabled?: boolean;
+  disabled: boolean = false;
   value: string = '';
 
   constructor() {
   }
 
-
   ngOnInit(): void {
   }
 
-  onChange(event: Event) {
+
+  onChange(event: any) {
   }
 
   onTouched(event: Event) {
@@ -47,8 +46,11 @@ export class InputComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value: any): void {
-    this.value = value
+    this.value = ''
   }
 
+  handleOnChange(value: string) {
+    this.onChange(value);
+  }
 
 }

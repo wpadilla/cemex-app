@@ -18,11 +18,14 @@ export class CheckboxComponent implements ControlValueAccessor {
   disabled?: boolean;
   checked?: boolean;
 
-  onChange(event: Event) {
-
+  handleOnChange(event: any) {
+    this.onChange(event.target.checked)
   }
 
-  onTouched(event: Event) {
+  onChange(event: any) {
+  }
+
+  onTouched(event: any) {
   }
 
   registerOnChange(fn: any): void {

@@ -5,7 +5,6 @@ import {CommonModule} from "@angular/common";
 import {TableComponent} from './components/table/table.component';
 import {OrderItemComponent} from './components/order-item/order-item.component';
 import {BadgeComponent} from './components/badge/badge.component';
-import {ClickOutsideDirective} from "./directives/click-outside.directive";
 import {InputComponent} from "./components/form/input/input.component";
 import {SelectComponent} from "./components/form/select/select.component";
 import {CheckboxComponent} from "./components/form/checkbox/checkbox.component";
@@ -15,11 +14,11 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
 import { FiltersComponent } from './components/filters/filters.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ModalComponent } from './components/modal/modal.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
     IconComponent,
-    ClickOutsideDirective,
     ButtonComponent,
     TableComponent,
     OrderItemComponent,
@@ -36,11 +35,12 @@ import { ModalComponent } from './components/modal/modal.component';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   exports: [
     IconComponent,
-    ClickOutsideDirective,
     ButtonComponent,
     TableComponent,
     OrderItemComponent,

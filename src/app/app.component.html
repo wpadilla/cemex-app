@@ -1,14 +1,18 @@
 <app-layout>
-  <app-breadcrumbs [data]="breadcrumbs"></app-breadcrumbs>
-  <p class="app-title">CEMEX Go Online Store</p>
-  <app-filters></app-filters>
-  <p class="app-total app-subtitle">Total: {{28410 | currency}}USD</p>
-  <div>
-    <app-table [data]="orders" [columns]="orderTableColumns"
-               [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0, yPosition: '40px', delay: '.6s'}}">
-      <ng-template #listItem let-item>
-        <app-order-item [order]="item"></app-order-item>
-      </ng-template>
-    </app-table>
+  <div class="app-wrapper">
+    <div>
+      <app-breadcrumbs [data]="breadcrumbs"></app-breadcrumbs>
+      <p class="app-title">CEMEX Go Online Store</p>
+    </div>
+    <app-filters [data]="orders" (filter)="onFilter($event)"></app-filters>
+    <p class="app-total app-subtitle">Total: {{total | currency}}USD</p>
+    <div>
+      <app-table [data]="filtered" [columns]="orderTableColumns"
+                 [@verticalSlide]="{ value: ':enter', params: { initialOpacity: 0, yPosition: '40px', delay: '.6s'}}">
+        <ng-template #listItem let-item>
+          <app-order-item [order]="item"></app-order-item>
+        </ng-template>
+      </app-table>
+    </div>
   </div>
 </app-layout>

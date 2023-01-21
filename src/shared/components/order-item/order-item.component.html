@@ -1,7 +1,9 @@
 <app-table-record>
   <app-table-cell label="Status">
-    <app-badge [type]="badgeType"></app-badge>
-    <span>{{order.status}}</span>
+    <div class="status-wrapper">
+      <app-badge [type]="badgeType"></app-badge>
+      <span>{{order.status}}</span>
+    </div>
   </app-table-cell>
   <app-table-cell label="Supplier Name">
     {{order.supplierName}}
