@@ -1,6 +1,8 @@
 <label class="text-blue">{{label}}</label>
 <div class="select-wrapper" (click)="toggleMenu($event)" (clickOutside)="showMenu = false">
-  <span class="selected-item">{{selectedLabelData.toString()}}</span>
+  <span class="selected-item" [class.select-placeholder]="!selectedLabelData.length">
+    {{selectedLabelData.length ? selectedLabelData.toString() : placeholder }}
+  </span>
   <app-icon type="chevron-down"></app-icon>
   <div
     class="select-menu"

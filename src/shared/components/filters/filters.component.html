@@ -5,6 +5,8 @@
         icon="search"
         placeholder="Search for Name"
         formControlName="supplierName"
+        [autocompleteData]="filteredData"
+        autoCompleteKeyItem="supplierName"
       ></app-input>
       <app-icon type="sliders" label="Filters" (click)="showFilters = true"></app-icon>
     </div>
@@ -29,11 +31,13 @@
       <div class="filters-item-grid">
         <app-select label="Phase"
                     formControlName="phase"
+                    placeholder="Select one or more phases"
                     [multiple]="true"
                     [data]="phases">
         </app-select>
         <app-select label="Month"
                     formControlName="month"
+                    placeholder="Select one or more months"
                     [multiple]="true"
                     [data]="months">
         </app-select>

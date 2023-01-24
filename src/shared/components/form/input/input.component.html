@@ -1,10 +1,17 @@
-<div class="input-wrapper">
+<div class="input-wrapper" (clickOutside)="showAutocomplete = false">
   <input type="text"
          [disabled]="disabled"
          [(ngModel)]="value"
          (ngModelChange)="handleOnChange($event)"
          (blur)="onTouched($event)"
+         (click)="showAutocomplete = !showAutocomplete"
          class="input"
-         [placeholder]="placeholder">
+         [placeholder]="placeholder"
+  >
   <app-icon [type]="icon" *ngIf="icon"></app-icon>
+  <div class="input-autocomplete-menu"
+       *ngIf="showAutocomplete && autocompleteDataFiltered.length"
+       [@fadeListAnimation]="autocompleteDataFiltered.length">
+    <div class="input-autocomplete-menu-item" *ngFor="let item of autocompleteDataFiltered" (click)="selectAutocompleteItem(item[autoCompleteKeyItem])">{{item[autoCompleteKeyItem]}}</div>
+  </div>
 </div>

@@ -8,7 +8,7 @@ export type BadgeTypes = 'pending' | 'active' | 'waiting';
 
 export type ButtonTypes = 'primary' | 'secondary';
 
-export interface ISelectOption {
+export interface ICommonOption {
   label: string;
   value: any;
 }

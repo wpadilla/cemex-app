@@ -47,7 +47,7 @@ export class AppComponent {
     },
     {
       amount: 4300,
-      supplierName: 'Vlad Titus Dor',
+      supplierName: 'Vladimir Glad',
       month: 'May',
       phase: 'Deployment',
       internalOrder: 200,
@@ -86,7 +86,7 @@ export class AppComponent {
     },
     {
       amount: 4300,
-      supplierName: 'Henry Ford',
+      supplierName: 'Jaime Kent',
       month: 'August',
       phase: 'Development',
       internalOrder: 200,

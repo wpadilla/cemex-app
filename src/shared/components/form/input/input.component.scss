@@ -31,5 +31,34 @@
     font-size: 1.125rem;
   }
 
+  .input-autocomplete-menu {
+    position: absolute;
+    width: 100%;
+    border-top: 3px solid colors.$blue-3;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .3);
+    background-color: white;
+    top: 3rem;
+    left: 0;
+    z-index: 99;
+    max-height: 180px;
+    overflow: scroll;
+
+    .input-autocomplete-menu-item {
+      padding: 1.25rem;
+      cursor: pointer;
+      &.selected {
+        background-color: colors.$blue-3;
+        color: white;
+      }
+      &:hover {
+        background-color: colors.$gray;
+        color: colors.$black;
+      }
+    }
+
+  }
+
+
 }
 

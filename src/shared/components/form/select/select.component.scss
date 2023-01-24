@@ -11,6 +11,9 @@
   cursor: pointer;
   .selected-item {
     color: colors.$black;
+    &.select-placeholder {
+      color: colors.$gray-3;
+    }
   }
 
   .select-menu {

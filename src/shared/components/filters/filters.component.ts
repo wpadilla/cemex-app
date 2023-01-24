@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
-import {ISelectOption} from "../../../core/interfaces/common.interface";
+import {ICommonOption} from "../../../core/interfaces/common.interface";
 import {FormArray, FormControl, FormGroup} from "@angular/forms";
 import {Subscription} from "rxjs";
 
@@ -11,9 +11,10 @@ import {Subscription} from "rxjs";
 export class FiltersComponent implements OnInit, OnDestroy {
   @Input() data: any[] = [];
   @Output() filter = new EventEmitter();
+  filteredData: any[] = [];
 
   showFilters?: boolean;
-  phases: ISelectOption[] = [
+  phases: ICommonOption[] = [
     {
       label: 'All',
       value: '',
@@ -36,7 +37,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
     }
   ];
 
-  months: ISelectOption[] = [
+  months: ICommonOption[] = [
     {
       label: 'All',
       value: '',
@@ -89,7 +90,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
     month: new FormControl(),
   })
   nameControlSubscription = new Subscription();
-  tags: ISelectOption[] = [];
+  tags: ICommonOption[] = [];
 
   get statusFormControl(): FormArray {
     return this.filtersForm.controls.status;
@@ -100,6 +101,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.filteredData = this.data;
     this.nameControlSubscription = this.filtersForm.controls.supplierName.valueChanges.subscribe((v) => {
       setTimeout(() => this.applyFilters())
     })
@@ -121,6 +123,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
       return data.reduce((a, b) => a && b, true);
     })
 
+    this.filteredData = [...filtered];
     this.filter.emit(filtered);
     this.showFilters = false;
     this.buildTags(formValue);
@@ -137,7 +140,7 @@ export class FiltersComponent implements OnInit, OnDestroy {
         }
         return false;
       }
-    ).filter(item => !!item) as ISelectOption[];
+    ).filter(item => !!item) as ICommonOption[];
   }
 
   removeFilter(controlName: string) {

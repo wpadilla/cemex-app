@@ -1,7 +1,8 @@
 import {Component, EventEmitter, forwardRef, Input, OnInit, Output} from '@angular/core';
-import {ISelectOption} from "../../../../core/interfaces/common.interface";
+import {ICommonOption} from "../../../../core/interfaces/common.interface";
 import {verticalSlideAnimation} from "../../../animations/common.animations";
 import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
+import {deepEqual} from "../../../../utils/filter.utils";
 
 
 @Component({
@@ -21,7 +22,8 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 })
 export class SelectComponent implements ControlValueAccessor {
   @Input() label?: string;
-  @Input() data: ISelectOption[] = [];
+  @Input() placeholder?: string;
+  @Input() data: ICommonOption[] = [];
   @Input() multiple?: boolean = false;
   @Output() select = new EventEmitter();
   showMenu?: boolean;
@@ -32,7 +34,7 @@ export class SelectComponent implements ControlValueAccessor {
 
 
   handleSelectedItem(value: unknown, isRemoving?: boolean) {
-    const selectedItem: ISelectOption = {...this.data.find(item => item.value === value)} as ISelectOption;
+    const selectedItem: ICommonOption = {...this.data.find(item => item.value === value)} as ICommonOption;
     const selectedLabel = selectedItem.label;
     const selectedValue = selectedItem.value;
 
@@ -40,7 +42,7 @@ export class SelectComponent implements ControlValueAccessor {
       if(value && value !== '') {
         if(isRemoving) {
           this.selectedLabelData = this.selectedLabelData.filter((item: string) => item !== selectedLabel)
-          this.selectedValueData = this.selectedValueData.filter((item: any) => !this.deepEqual(item, selectedValue))
+          this.selectedValueData = this.selectedValueData.filter((item: any) => !deepEqual(item, selectedValue))
         } else {
           selectedLabel && this.selectedLabelData.push(selectedLabel)
           selectedValue && this.selectedValueData.push(selectedValue)
@@ -63,9 +65,9 @@ export class SelectComponent implements ControlValueAccessor {
     let valueData = selectedValue;
     let isRemoving = false;
     if(this.multiple && selectedValue !== '') {
-      isRemoving =this.selectedValueData.some((item: unknown) => this.deepEqual(item, valueData))
+      isRemoving =this.selectedValueData.some((item: unknown) => deepEqual(item, valueData))
       if(isRemoving) {
-        valueData = this.selectedValueData.filter((item: unknown) => !this.deepEqual(item, valueData));
+        valueData = this.selectedValueData.filter((item: unknown) => !deepEqual(item, valueData));
       } else {
         valueData = [...this.selectedValueData, valueData];
       }
@@ -101,9 +103,5 @@ export class SelectComponent implements ControlValueAccessor {
   toggleMenu(event: Event) {
     event.stopPropagation();
     this.showMenu = !this.showMenu;
-  }
-
-  deepEqual(value1: any, value2: any): boolean {
-    return JSON.stringify(value1) === JSON.stringify(value2);
   }
 }
