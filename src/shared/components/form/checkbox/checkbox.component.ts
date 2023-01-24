@@ -19,7 +19,9 @@ export class CheckboxComponent implements ControlValueAccessor {
   checked?: boolean;
 
   handleOnChange(event: any) {
+    this.checked = event.target.checked;
     this.onChange(event.target.checked)
+
   }
 
   onChange(event: any) {
@@ -41,6 +43,6 @@ export class CheckboxComponent implements ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
-    this.checked = obj;
+    this.checked = !!obj;
   }
 }

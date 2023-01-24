@@ -29,7 +29,10 @@
     .select-menu-item {
       padding: 1.25rem;
       cursor: pointer;
-
+      &.selected {
+        background-color: colors.$blue-3;
+        color: white;
+      }
       &:hover {
         background-color: colors.$gray;
       }

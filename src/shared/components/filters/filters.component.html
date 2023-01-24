@@ -11,7 +11,7 @@
     <div class="filters-item">
       <app-tag *ngFor="let tag of tags" [label]="tag.label" (close)="removeFilter(tag.value)"></app-tag>
     </div>
-    <span class="cursor-pointer text-blue-3 filter-right" (click)="clearFilter()">Clear Filters</span>
+    <span class="cursor-pointer text-blue-3 filter-right" *ngIf="tags.length" (click)="clearFilter()">Clear Filters</span>
 
   </div>
   <app-modal class="filter-modal" title="Filter Express"
@@ -29,10 +29,12 @@
       <div class="filters-item-grid">
         <app-select label="Phase"
                     formControlName="phase"
+                    [multiple]="true"
                     [data]="phases">
         </app-select>
         <app-select label="Month"
                     formControlName="month"
+                    [multiple]="true"
                     [data]="months">
         </app-select>
       </div>

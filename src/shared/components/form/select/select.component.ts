@@ -22,21 +22,58 @@ import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 export class SelectComponent implements ControlValueAccessor {
   @Input() label?: string;
   @Input() data: ISelectOption[] = [];
+  @Input() multiple?: boolean = false;
   @Output() select = new EventEmitter();
   showMenu?: boolean;
   disabled?: boolean;
   value?: unknown;
-  selectedItem: unknown;
+  selectedLabelData: any = [];
+  selectedValueData: any = [];
 
 
-  handleSelectedItem(value: unknown) {
-    this.selectedItem = {...this.data.find(item => item.value === value)}.label;
+  handleSelectedItem(value: unknown, isRemoving?: boolean) {
+    const selectedItem: ISelectOption = {...this.data.find(item => item.value === value)} as ISelectOption;
+    const selectedLabel = selectedItem.label;
+    const selectedValue = selectedItem.value;
+
+    if(this.multiple) {
+      if(value && value !== '') {
+        if(isRemoving) {
+          this.selectedLabelData = this.selectedLabelData.filter((item: string) => item !== selectedLabel)
+          this.selectedValueData = this.selectedValueData.filter((item: any) => !this.deepEqual(item, selectedValue))
+        } else {
+          selectedLabel && this.selectedLabelData.push(selectedLabel)
+          selectedValue && this.selectedValueData.push(selectedValue)
+        }
+      } else {
+        this.selectedLabelData = [];
+        this.selectedValueData = [];
+      }
+
+
+    } else {
+      this.selectedLabelData = selectedLabel;
+      this.selectedValueData = selectedValue;
+    }
   }
 
-  handleSelect(value: unknown) {
-    this.onChange(value)
-    this.select.emit()
-    this.handleSelectedItem(value);
+  handleSelect(selectedValue: any, event: Event) {
+    if(selectedValue)
+    event.stopPropagation();
+    let valueData = selectedValue;
+    let isRemoving = false;
+    if(this.multiple && selectedValue !== '') {
+      isRemoving =this.selectedValueData.some((item: unknown) => this.deepEqual(item, valueData))
+      if(isRemoving) {
+        valueData = this.selectedValueData.filter((item: unknown) => !this.deepEqual(item, valueData));
+      } else {
+        valueData = [...this.selectedValueData, valueData];
+      }
+    }
+
+    this.onChange(valueData);
+    this.select.emit(valueData);
+    this.handleSelectedItem(selectedValue, isRemoving);
   }
 
   onChange(value: unknown) {
@@ -59,5 +96,14 @@ export class SelectComponent implements ControlValueAccessor {
 
   writeValue(value: undefined): void {
     this.handleSelectedItem(value);
+  }
+
+  toggleMenu(event: Event) {
+    event.stopPropagation();
+    this.showMenu = !this.showMenu;
+  }
+
+  deepEqual(value1: any, value2: any): boolean {
+    return JSON.stringify(value1) === JSON.stringify(value2);
   }
 }

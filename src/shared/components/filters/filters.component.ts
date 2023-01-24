@@ -110,47 +110,30 @@ export class FiltersComponent implements OnInit, OnDestroy {
     const statusData = status ? status.map((item, i) => item && this.status[i].value).filter(item => !!item) : [];
     const formValue: any = {
       ...this.filtersForm.value,
+      status: statusData,
     }
 
-    const formData: any = {};
-
-    Object.keys(formValue).forEach(key => {
-      if (formValue[key] && key !== 'status') {
-        formData[key] = formValue[key]
-      }
-    })
-
     let filtered = this.data.filter(item => {
-      const data = Object.keys(formData).map(key => {
-        return !!(item[key] && item[key].match(new RegExp(`${formData[key]}`, 'gi')))
+      const data = Object.keys(formValue).map(key => {
+        return formValue[key] ? !!(item[key] &&
+          item[key].match(new RegExp(`${this.getRegExpFilter(formValue[key])}`, 'gi'))) : true;
       })
       return data.reduce((a, b) => a && b, true);
     })
 
-    if (statusData && statusData.length > 0) {
-      filtered = filtered.filter(item => statusData.indexOf(item.status) !== -1)
-    }
     this.filter.emit(filtered);
     this.showFilters = false;
-    this.buildTags(statusData);
+    this.buildTags(formValue);
   }
 
 
-  buildTags(status: any[]) {
-    const {value} = this.filtersForm as any;
-    this.tags = Object.keys(value).map(key => {
-        if (!!value[key]) {
-          if (key !== 'status') {
+  buildTags(formData: any) {
+    this.tags = Object.keys(formData).map(key => {
+        if (!!formData[key] && formData[key].length) {
             return ({
-              label: `${key}: ${value[key]}`,
+              label: `${key}: ${formData[key]}`,
               value: key,
             })
-          } else if (!!status.length) {
-            return ({
-              label: `${key}: ${(status).join(',')}`,
-              value: key,
-            })
-          }
         }
         return false;
       }
@@ -168,5 +151,15 @@ export class FiltersComponent implements OnInit, OnDestroy {
 
   clearFilter() {
     this.filtersForm.reset();
+  }
+
+  getRegExpFilter(data: any) {
+    if(typeof data === 'string') {
+      return data;
+    }
+
+    return data && data.length ? `^${data.join("$|^")}$` : '';
+
+
   }
 }

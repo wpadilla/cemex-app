@@ -1,5 +1,6 @@
 <label class="checkbox-wrapper">
   <input type="checkbox"
+         [value]="checked"
          [checked]="checked"
          (change)="handleOnChange($event)"
          (blur)="onTouched($event)">

@@ -13,7 +13,7 @@ export class AppComponent {
   title = 'cemex-app';
   orderTableColumns: ITableHeaderItem[] = [
     {title: 'Status'},
-    {title: 'Suplier Name'},
+    {title: 'Supplier Name'},
     {title: 'Month'},
     {title: 'Phase'},
     {title: 'Internal Order'},

@@ -15,9 +15,11 @@ import { FiltersComponent } from './components/filters/filters.component';
 import { TagComponent } from './components/tag/tag.component';
 import { ModalComponent } from './components/modal/modal.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {ClickOutsideDirective} from "./directive/click-outside.directive";
 
 @NgModule({
   declarations: [
+    ClickOutsideDirective,
     IconComponent,
     ButtonComponent,
     TableComponent,
@@ -40,6 +42,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
   ],
   providers: [],
   exports: [
+    ClickOutsideDirective,
     IconComponent,
     ButtonComponent,
     TableComponent,
