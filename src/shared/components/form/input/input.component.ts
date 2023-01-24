@@ -60,16 +60,13 @@ export class InputComponent implements OnInit, ControlValueAccessor, OnChanges {
 
   writeValue(value: any): void {
     this.value = value;
-    console.log('write,', value);
     this.filterAutocomplete(value || '');
   }
 
   handleOnChange(value: string) {
-    console.log(value);
     this.onChange(value);
     this.value = value;
     this.filterAutocomplete(value);
-    console.log('value', this.autocompleteDataFiltered, 'data', this.autocompleteData);
   }
 
   filterAutocomplete(value: string) {
